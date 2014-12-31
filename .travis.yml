@@ -25,7 +25,8 @@ install:
   - travis_retry bundle install --jobs 4 --path vendor/bundle
 
 script:
-  - SSPM_WEB_API_HOST=localhost:19292 gulp build
+  - export SSPM_WEB_API_HOST=localhost:19292 
+  - gulp build
   - bundle exec rackup --host localhost --port 19292 &
   - sleep 3
   - bundle exec rake spec
