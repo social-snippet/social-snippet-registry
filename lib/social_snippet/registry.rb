@@ -1,7 +1,9 @@
-require "social_snippet/registry/version"
+require "padrino"
 
 module SocialSnippet
-  module Registry
-    # Your code goes here...
-  end
+  module Registry; end
 end
+require_relative "registry/app/app"
+require_relative "registry/user_pages/app"
+require_relative "registry/version"
+
