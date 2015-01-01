@@ -23,8 +23,8 @@ install:
 
 script:
   - gulp build
-  - bundle exec padrino rake db:seed
-  - bundle exec rackup --host localhost --port 19292 &
+  - RACK_ENV="development" bundle exec padrino rake db:seed
+  - RACK_ENV="development" bundle exec rackup --host localhost --port 19292 &
   - sleep 3
   - bundle exec rake spec
 
