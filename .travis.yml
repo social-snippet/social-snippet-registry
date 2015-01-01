@@ -13,24 +13,27 @@ services:
 sudo: false
 
 before_install:
-  - export NOKOGIRI_USE_SYSTEM_LIBRARIES="YES"
   - travis_retry npm install -g gulp
   - firefox --version
-  - export DISPLAY=":99.0"
   - sh -e /etc/init.d/xvfb start
-  - sleep 3
 
 install:
   - travis_retry npm install
   - travis_retry bundle install --jobs 4 --path vendor/bundle
 
 script:
-  - export SSPM_WEB_API_HOST=localhost:19292 
-  - export SSPM_WEB_API_PROTOCOL=http
   - gulp build
+  - bundle exec padrino rake db:seed
   - bundle exec rackup --host localhost --port 19292 &
   - sleep 3
   - bundle exec rake spec
+
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES="YES"
+    - DISPLAY=":99.0"
+    - SSPM_WEB_API_HOST=localhost:19292
+    - SSPM_WEB_API_PROTOCOL=http
 
 deploy:
   provider: heroku
