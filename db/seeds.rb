@@ -1,3 +1,4 @@
+require "bundler/setup"
 require "rubygems"
 require "factory_girl"
 require "database_cleaner"
