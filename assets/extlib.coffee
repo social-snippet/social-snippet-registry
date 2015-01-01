@@ -1,0 +1,11 @@
+requirejs(
+  [
+    "jquery"
+    "underscore"
+    "backbone"
+    "backbone.marionette"
+    "bootstrap"
+  ]
+  (
+  )->
+)

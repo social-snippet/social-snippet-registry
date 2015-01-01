@@ -1,0 +1,51 @@
+# Doc: http://docs.travis-ci.com/user/build-configuration/
+
+language: ruby
+
+rvm:
+  - "2.2.0"
+
+services:
+  - mongodb
+  - redis-server
+  - memcached
+
+sudo: false
+
+before_install:
+  - travis_retry npm install -g gulp
+  - firefox --version
+  - sh -e /etc/init.d/xvfb start
+
+install:
+  - travis_retry npm install
+  - travis_retry bundle install --jobs 4 --path vendor/bundle
+
+script:
+  - gulp build
+  - RACK_ENV="development" bundle exec padrino rake db:seed
+  - RACK_ENV="development" bundle exec rackup --host localhost --port 19292 &
+  - sleep 3
+  - bundle exec rake spec
+
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES="YES"
+    - DISPLAY=":99.0"
+    - SSPM_WEB_API_HOST=localhost:19292
+    - SSPM_WEB_API_PROTOCOL=http
+
+deploy:
+  provider: heroku
+  strategy: api
+  api_key:
+    secure: "O5EQ1QwuihOknvGmtqZOB8yrpSHjr7SEyrBCjl6Y/btgOeaVqphDLuRUXgeOLjvp9aASi/5P6owCuacvZW0xczlpFCwNU4fnOS5aepU+Iar2FRQqoZw5URguwvDvUdMzmftqXu4cimVXEIEdn0gUkWDD/YXDaqe1/2MOKe++sFo="
+  app:
+    master: sspm
+    develop: sspm-test
+
+cache:
+  directories:
+    - vendor/bundle
+    - node_modules
+    - bower_components
