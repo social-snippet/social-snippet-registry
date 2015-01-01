@@ -13,6 +13,6 @@
     "tests"
   ],
   "dependencies": {
-    "social-snippet-registry-assets": "0.0.15"
+    "social-snippet-registry-assets": "0.0.16"
   }
 }
