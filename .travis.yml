@@ -26,6 +26,7 @@ install:
 
 script:
   - export SSPM_WEB_API_HOST=localhost:19292 
+  - export SSPM_WEB_API_PROTOCOL=http
   - gulp build
   - bundle exec rackup --host localhost --port 19292 &
   - sleep 3
