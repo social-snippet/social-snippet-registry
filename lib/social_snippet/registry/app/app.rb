@@ -6,6 +6,8 @@ module SocialSnippet
       # register Padrino::Mailer
       register Padrino::Helpers
 
+      layout :application_view
+
       unless @app_no_config
         sspm_enable_session
         sspm_enable_tracker

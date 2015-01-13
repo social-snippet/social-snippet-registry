@@ -8,6 +8,8 @@ module SocialSnippet
       # register Padrino::Mailer
       register Padrino::Helpers
 
+      layout :application_view
+
       unless @app_no_config
         sspm_enable_session
         sspm_enable_tracker
@@ -26,7 +28,7 @@ module SocialSnippet
       set :views, App.view_path("")
 
       get :login do
-        render :empty
+        render :empty_view
       end
 
       get :logout do
@@ -36,11 +38,11 @@ module SocialSnippet
       end
 
       get :dashboard do
-        render :empty
+        render :empty_view
       end
 
       get "/repos", :with => [:owner, :repo_id] do
-        render :empty
+        render :empty_view
       end
 
       get "/auth/github/callback" do
