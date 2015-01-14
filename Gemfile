@@ -7,6 +7,7 @@ gem "social_snippet-registry_core"
 
 group :development do
   gem "juicer"
+  gem "mongoid-tree"
 end
 
 group :test do
