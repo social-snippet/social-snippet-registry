@@ -28,7 +28,7 @@ describe "Selenium" do
             wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
             wait.until { driver.find_elements :css => ".contents-region .panel" }
           end
-          it { expect(panels.empty?).to be_falsey }
+          it { expect(panels).to be_empty }
         end
 
         context "click add link" do
