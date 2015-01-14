@@ -7,7 +7,7 @@ SocialSnippet::Registry::UserPages.helpers do
       api_client = Octokit::Client.new(:access_token => new_access_token)
       github_info = api_client.user
       unless github_info.nil?
-        user = UserAccount.find_or_create_by(:github_user_id => github_info.id)
+        user = ::SocialSnippet::RegistryCore::Models::UserAccount.find_or_create_by(:github_user_id => github_info.id)
         user.update_attributes!(
           :github_access_token => new_access_token,
         )
