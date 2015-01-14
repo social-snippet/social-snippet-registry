@@ -45,6 +45,7 @@ end
 #
 Padrino.before_load do
   require "social_snippet/registry/webapi"
+  require "social_snippet/registry_core/models/user_account"
 end
 
 ##
