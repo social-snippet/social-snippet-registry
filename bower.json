@@ -16,6 +16,6 @@
     "social-snippet-registry-assets": "0.0.18"
   },
   "resolutions": {
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.x"
   }
 }
