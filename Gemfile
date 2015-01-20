@@ -5,6 +5,7 @@ ruby "2.2.0"
 gem "social_snippet-registry_core" #, :path => "../social-snippet-registry-core"
 
 group :development do
+  gem "rake"
   gem "juicer"
   gem "mongoid-tree"
 end
