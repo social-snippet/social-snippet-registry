@@ -18,8 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "bundler"
-  spec.add_dependency "social_snippet-registry_core"
-  spec.add_dependency "padrino"
-  spec.add_dependency "octokit"
+  spec.add_runtime_dependency "bundler"
+  spec.add_runtime_dependency "social_snippet-registry_core"
+  spec.add_runtime_dependency "padrino"
+  spec.add_runtime_dependency "octokit"
+
+  spec.add_development_dependency "rake"
 end
