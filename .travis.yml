@@ -20,8 +20,8 @@ before_install:
   - bower prune
 
 install:
-  - travis_retry npm install
   - travis_retry bower install
+  - travis_retry npm install
   - travis_retry bundle install --jobs 4 --path vendor/bundle
 
 before_script:
