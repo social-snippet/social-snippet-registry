@@ -14,12 +14,18 @@ sudo: false
 
 before_install:
   - travis_retry npm install -g gulp
-  - firefox --version
+  - travis_retry npm install -g bower
   - sh -e /etc/init.d/xvfb start
+  - npm prune
+  - bower prune
 
 install:
   - travis_retry npm install
+  - travis_retry bower install
   - travis_retry bundle install --jobs 4 --path vendor/bundle
+
+before_script:
+  - firefox --version
 
 script:
   - gulp build
@@ -31,8 +37,8 @@ env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES="YES"
     - DISPLAY=":99.0"
-    - SSPM_WEB_API_HOST=localhost:19292
-    - SSPM_WEB_API_PROTOCOL=http
+    - SSPM_WEBAPI_HOST=localhost:19292
+    - SSPM_WEBAPI_PROTOCOL=http
 
 deploy:
   provider: heroku
