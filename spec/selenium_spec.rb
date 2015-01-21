@@ -83,6 +83,8 @@ describe "Selenium" do
 
             before { add_button.click }
 
+            it { expect(add_button.text).to eq "Doing..." }
+
             context "show repo page" do
 
               before do
