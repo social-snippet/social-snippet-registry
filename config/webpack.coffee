@@ -20,7 +20,6 @@ webpackPlugins.push new webpack.optimize.UglifyJsPlugin
 module.exports =
   
   entry: [
-    # path.join(__dirname, "../bower_components/social-snippet-registry-assets/src/coffee/main.coffee")
     "main"
   ]
 
