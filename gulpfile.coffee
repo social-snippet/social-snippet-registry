@@ -20,7 +20,11 @@ gulp.task "build/js", ["bower"], ->
 
 gulp.task "main.css/sass", ["bower"], ->
   sass = require("gulp-sass")
-  gulp.src ["./bower_components/social-snippet-registry-assets/src/sass/**/*.sass"]
+  sassSrc = [
+    "./bower_components/social-snippet-registry-assets/src/sass/**/*.sass"
+    "./bower_components/social-snippet-registry-assets/src/sass/**/*.scss"
+  ]
+  gulp.src sassSrc
     .pipe sass()
     .pipe gulp.dest("tmp/css/")
 
