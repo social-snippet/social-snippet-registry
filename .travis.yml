@@ -29,7 +29,7 @@ before_script:
 
 script:
   - gulp build
-  - RACK_ENV="test" bundle exec rackup --host localhost --port 19292 &
+  - bundle exec rackup --host localhost --port 19292 &
   - sleep 3
   - bundle exec rake spec
 
@@ -39,6 +39,7 @@ env:
     - DISPLAY=":99.0"
     - SSPM_WEBAPI_HOST=localhost:19292
     - SSPM_WEBAPI_PROTOCOL=http
+    - RACK_ENV=test
 
 deploy:
   provider: heroku
