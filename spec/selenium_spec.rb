@@ -45,6 +45,61 @@ describe "Selenium" do
 
       end # search repo
 
+      context "click add link" do
+
+        let(:link_element) do
+          wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
+          wait.until { driver.find_element :css => 'a[href="/new/repository"]' }
+        end
+
+        before { link_element.click }
+        it { expect(driver.current_url).to eq "http://localhost:19292/new/repository" }
+
+        context "input github repo info" do
+
+          let(:input_user_name) do
+            wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
+            wait.until { driver.find_element :css => ".by-github-region input.new-repo-user" }
+          end
+
+          before { input_user_name.send_keys "social-snippet" }
+
+          let(:input_repo_name) do
+            wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
+            wait.until { driver.find_element :css => ".by-github-region input.new-repo-name" }
+          end
+
+          before { input_repo_name.send_keys "example-repo" }
+
+          it { expect(input_user_name.attribute "value").to eq "social-snippet" }
+          it { expect(input_repo_name.attribute "value").to eq "example-repo" }
+
+          context "click add button" do
+
+            let(:add_button) do
+              wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
+              wait.until { driver.find_element :css => ".by-github-region .btn.add" }
+            end
+
+            before { add_button.click }
+
+            context "show repo page" do
+
+              before do
+                wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
+                wait.until { driver.current_url === "http://localhost:19292/repositories/example-repo" }
+              end
+
+              it { expect(driver.current_url).to eq "http://localhost:19292/repositories/example-repo" }
+
+            end
+
+          end
+
+        end
+
+      end # click add link
+
     end # open home
 
   end # :open_home
