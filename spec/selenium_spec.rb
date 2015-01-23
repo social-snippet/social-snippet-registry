@@ -35,11 +35,11 @@ describe "Selenium" do
 
           let(:link_element) do
             wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
-            wait.until { driver.find_element :css => 'a[href="/new/repository"]' }
+            wait.until { driver.find_element :css => 'a[href="/repos/new"]' }
           end
 
           before { link_element.click }
-          it { expect(driver.current_url).to eq "http://localhost:19292/new/repository" }
+          it { expect(driver.current_url).to eq "http://localhost:19292/repos/new" }
 
         end # click add link
 
@@ -49,11 +49,11 @@ describe "Selenium" do
 
         let(:link_element) do
           wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
-          wait.until { driver.find_element :css => 'a[href="/new/repository"]' }
+          wait.until { driver.find_element :css => 'a[href="/repos/new"]' }
         end
 
         before { link_element.click }
-        it { expect(driver.current_url).to eq "http://localhost:19292/new/repository" }
+        it { expect(driver.current_url).to eq "http://localhost:19292/repos/new" }
 
         context "input github repo info" do
 
@@ -89,10 +89,10 @@ describe "Selenium" do
 
               before do
                 wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
-                wait.until { driver.current_url === "http://localhost:19292/repositories/example-repo" }
+                wait.until { driver.current_url === "http://localhost:19292/repos/r/example-repo" }
               end
 
-              it { expect(driver.current_url).to eq "http://localhost:19292/repositories/example-repo" }
+              it { expect(driver.current_url).to eq "http://localhost:19292/repos/r/example-repo" }
 
             end
 
