@@ -4,7 +4,11 @@ SocialSnippet::Registry::App.controllers :repositories do
     render :empty_view
   end
 
-  get :index, :with => [:repo_name] do
+  get :new do
+    render :empty_view
+  end
+
+  get :r, :with => [:repo_name] do
     render :empty_view
   end
 
