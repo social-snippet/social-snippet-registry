@@ -1,4 +1,4 @@
-SocialSnippet::Registry::App.controllers :repositories do
+SocialSnippet::Registry::App.controllers :repos do
 
   get :index do
     render :empty_view
