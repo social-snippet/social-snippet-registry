@@ -89,7 +89,7 @@ describe "Selenium" do
 
               before do
                 wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
-                wait.until { driver.current_url === "http://localhost:19292/repos/r/example-repo" }
+                wait.until { /example-repo/ === driver.title }
               end
 
               it { expect(driver.current_url).to eq "http://localhost:19292/repos/r/example-repo" }
