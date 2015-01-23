@@ -73,7 +73,7 @@ html
               = " Home"
 
           li
-            a href="/new/repository"
+            a href="/repos/new"
               i.glyphicon.glyphicon-plus
               = " Add"
 
@@ -227,7 +227,7 @@ html
     script#template-repository-panel-view type="text/html"
       div.panel-heading
         h4
-          == '<a href="/repositories/<%- name %>">'
+          == '<a href="/repos/r/<%- name %>">'
           | <%- name %>
           == '</a>'
           | <%= github_link %>
