@@ -72,35 +72,35 @@ html
           li
             a href="/"
               i.glyphicon.glyphicon-home
-              = " Home"
+              |  Home
 
           li
             a href="/repos/new"
               i.glyphicon.glyphicon-plus
-              = " Add"
+              |  Add
 
           li
             a href="/search"
               i.glyphicon.glyphicon-search
-              = " Search"
+              |  Search
 
       section.navigation
         ul.nav
-          - if logged_in?
+          - is_logged_in
             li
               a href="/user/dashboard"
                 i.glyphicon.glyphicon-user
-                = " Dashboard"
+                |  Dashboard
 
             li
               a href="/user/logout"
                 i.glyphicon.glyphicon-off
-                = " Logout"
-          - else
+                |  Logout
+          - ! is_logged_in
             li
               a href="/user/login"
                 i.glyphicon.glyphicon-user
-                = " Login"
+                |  Login
 
 
     //
