@@ -6,6 +6,7 @@ module SocialSnippet
       # register Padrino::Mailer
       register Padrino::Helpers
 
+      Slim::Engine.set_options :logic_less => true
       layout :application_view
 
       unless @app_no_config
