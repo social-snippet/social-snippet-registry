@@ -5,7 +5,6 @@ PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
 # Load our dependencies
 require "bundler/setup"
 require "padrino"
-require "slim/logic_less"
 require "social_snippet/registry_core"
 
 ##
@@ -45,6 +44,7 @@ end
 # Add your before (RE)load hooks here
 #
 Padrino.before_load do
+  require "social_snippet/registry_views"
   require "social_snippet/registry/webapi"
   require "social_snippet/registry_core/models/user_account"
 end
