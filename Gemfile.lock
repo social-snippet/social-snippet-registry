@@ -157,7 +157,7 @@ GEM
     slim (3.0.1)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
-    social_snippet-registry_core (0.0.8)
+    social_snippet-registry_core (0.0.9)
       bundler
       dalli
       mongoid (~> 4.0)
@@ -169,6 +169,8 @@ GEM
       slim
       thin
       version_sorter
+    social_snippet-registry_views (0.0.6)
+      padrino (~> 0.12.0)
     temple (0.7.5)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
@@ -200,3 +202,4 @@ DEPENDENCIES
   rspec
   selenium-webdriver (~> 2.44.0)
   social_snippet-registry_core
+  social_snippet-registry_views
