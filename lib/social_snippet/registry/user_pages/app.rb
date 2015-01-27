@@ -8,6 +8,7 @@ module SocialSnippet
       # register Padrino::Mailer
       register Padrino::Helpers
 
+      set :views, ::SocialSnippet::RegistryViews::CommonViews.view_path("")
       layout :application_view
 
       unless @app_no_config
@@ -24,8 +25,6 @@ module SocialSnippet
           role.allow "/login"
         end
       end
-
-      set :views, App.view_path("")
 
       get :login do
         render :empty_view
