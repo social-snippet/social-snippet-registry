@@ -9,7 +9,7 @@ describe "Selenium" do
       before { driver.navigate.to "http://localhost:19292" }
       it { expect(driver.current_url).to eq "http://localhost:19292/" }
 
-      context "search repo" do
+      describe "search repo test" do
 
         let(:input_query) do
           wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
@@ -18,6 +18,8 @@ describe "Selenium" do
 
         before do
           input_query.send_keys "repo"
+          wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
+          wait.until { input_query.attribute("value") === "repo" }
           input_query.submit
         end
 
@@ -45,7 +47,7 @@ describe "Selenium" do
 
       end # search repo
 
-      context "click add link" do
+      context "add repo test" do
 
         let(:link_element) do
           wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
@@ -70,6 +72,13 @@ describe "Selenium" do
           end
 
           before { input_repo_name.send_keys "example-repo" }
+
+          before do
+            wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
+            wait.until { input_user_name.attribute("value") === "social-snippet" }
+            wait = ::Selenium::WebDriver::Wait.new(:timeout => 10)
+            wait.until { input_repo_name.attribute("value") === "example-repo" }
+          end
 
           it { expect(input_user_name.attribute "value").to eq "social-snippet" }
           it { expect(input_repo_name.attribute "value").to eq "example-repo" }
