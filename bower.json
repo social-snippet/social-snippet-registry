@@ -13,7 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "social-snippet-registry-assets": "0.0.25"
+    "social-snippet-registry-assets": "0.0.26"
   },
   "resolutions": {
     "underscore": "~1.7.x"
