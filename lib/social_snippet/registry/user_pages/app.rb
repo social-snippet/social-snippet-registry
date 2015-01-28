@@ -27,7 +27,7 @@ module SocialSnippet
       end
 
       get :login do
-        render :empty_view
+        render :all_view
       end
 
       get :logout do
@@ -37,11 +37,11 @@ module SocialSnippet
       end
 
       get :dashboard do
-        render :empty_view
+        render :all_view
       end
 
       get "/repos", :with => [:owner, :repo_id] do
-        render :empty_view
+        render :all_view
       end
 
       get "/auth/github/callback" do
