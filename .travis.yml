@@ -16,8 +16,10 @@ before_install:
   - travis_retry npm install -g gulp
   - travis_retry npm install -g bower
   - sh -e /etc/init.d/xvfb start
-  - npm prune
-  - bower prune
+  - travis_retry npm prune
+  - travis_retry bower prune
+  - travis_retry npm update
+  - travis_retry bower update
 
 install:
   - travis_retry bower install
