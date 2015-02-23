@@ -52,7 +52,7 @@ GEM
       tzinfo (>= 0.3.37)
     mongoid-tree (2.0.0)
       mongoid (>= 4.0, <= 5.0)
-    moped (2.0.3)
+    moped (2.0.4)
       bson (~> 2.2)
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
