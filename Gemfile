@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.2.2"
+ruby "2.2.4"
 
 gem "social_snippet-registry_views" #, :path => "../social-snippet-registry-views"
 gem "social_snippet-registry_core" #, :path => "../social-snippet-registry-core"
